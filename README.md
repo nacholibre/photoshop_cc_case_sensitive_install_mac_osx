@@ -38,8 +38,10 @@ I've forked the code to update it for Photoshop CC.
 3. Symlink the install directory to the pseudo-image
 
     `ln -s /Volumes/Adobe\ Photoshop\ SparseBundle/Adobe /Applications/Adobe`
+    
+4. Run the `Photoshop_Installer.dmg` and don't do anything. This step is needed to mount the installer in the system.
 
-4.  Get the hack, compile it, and run it
+5.  Get the hack, compile it, and run it
     ``` bash
     cd ~/Stuff/Adobe
     git clone git://github.com/nacholibre/photoshop_cc_case_sensitive_install_mac_osx.git
@@ -48,9 +50,11 @@ I've forked the code to update it for Photoshop CC.
     sudo make run
     ```
 
-5.  The installer will open, if not, click on the Icon in the dock and install Photoshop.
+6. Open the installer that we opened in step 4. It should be running, just click the icon in the dock.
 
-6. That's it, you are done!
+7. Follow the installation procedure.
+
+7. That's it, you are done!
 
 ## Thanks
 
