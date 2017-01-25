@@ -34,17 +34,12 @@ I've forked the code to update it for Photoshop CC.
     open ~/Stuff/Adobe/Adobe_Photoshop_SparseBundle.sparsebundle
     mkdir -p /Volumes/Adobe\ Photoshop\ SparseBundle/Adobe
     ```
+    
+3. Symlink the install directory to the pseudo-image
 
-3.  Create an extra `/Applications/Adobe` folder on the boot drive (we will trick the installer with this temporary directory.)
-    ``` bash
-    mkdir -p /Applications/Adobe
-    ```
+    `ln -s /Volumes/Adobe\ Photoshop\ SparseBundle/Adobe /Applications/Adobe`
 
 4.  Get the hack, compile it, and run it
-
-    OK, at this point you'll need to edit the `Makefile` and set the `CS6_INSTALLER_PATH` variable to point to the `Install.app` directory.
-    The current one tries to find it automatically, but it *may* fail...
-
     ``` bash
     cd ~/Stuff/Adobe
     git clone git://github.com/nacholibre/photoshop_cc_case_sensitive_install_mac_osx.git
@@ -53,31 +48,9 @@ I've forked the code to update it for Photoshop CC.
     sudo make run
     ```
 
-5.  Install Photoshop and you are done!
+5.  The installer will open, if not, click on the Icon in the dock and install Photoshop.
 
-
-    Remember, **don't** click the `Install` button just yet.
-
-6.  Now, time to do one more hack - remove the `/Applications/Adobe` directory and replace it with a symlink to the `/Adobe` directory from the SparseBundle.
-
-    ``` bash
-    rm -rf /Applications/Adobe
-    ln -s /Volumes/Adobe\ CS6\ SparseBundle/Adobe/ /Applications/Adobe
-    ```
-
-7.  Now click the `Install` button
-
-8.  You can now safely delete the intermediate files and probably move the SparseBundle somewhere easier to mount by just clicking it (the Desktop, probably?)
-
-    ``` bash
-    mv ~/Stuff/Adobe/Adobe_CS6_SparseBundle.sparsebundle ~/Desktop/Adobe_CS6_SparseBundle.sparsebundle
-    rm -rf ~/Stuff/Adobe
-    ```
-
-9.  That's it!
-
-    Just remember that you'll need to mount the SparseBundle every time you need to use Adobe's products.
-
+6. That's it, you are done!
 
 ## Thanks
 
