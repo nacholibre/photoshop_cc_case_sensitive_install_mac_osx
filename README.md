@@ -1,4 +1,4 @@
-# Installing Adobe CS6 on case-sensitive drives (Mac OS X)
+# Installing Adobe Photoshop CC on case-sensitive drives (Mac OS X)
 
 Well, everybody knows that Adobe are a **[censored]** company.
 Their products are the defacto standard for image/video editing and designing, but their codebase really suck. No excuses.
@@ -7,7 +7,7 @@ The problem addressed here is that Creative Studio™ refuses to install on a ca
 And it doesn't just refuse to install on a case-sensitive drive, but it also requires to install on your *boot* drive as well! Srsly?
 
 Well, there's a solution. I've just stumbled upon [this](https://bitbucket.org/lokkju/adobe_case_sensitive_volumes), and I'm really anxious to share it.
-I've forked the code to update it for CS6.
+I've forked the code to update it for Photoshop CC.
 
 ## Prerequisites
 
@@ -25,14 +25,14 @@ I've forked the code to update it for CS6.
     ``` bash
     mkdir -p ~/Stuff/Adobe
     cd ~/Stuff/Adobe
-    hdiutil create -size 15g -type SPARSEBUNDLE -nospotlight -volname 'Adobe CS6 SparseBundle' -fs 'Journaled HFS+' ~/Stuff/Adobe/Adobe_CS6_SparseBundle.sparsebundle
+    hdiutil create -size 15g -type SPARSEBUNDLE -nospotlight -volname 'Adobe Photoshop SparseBundle' -fs 'Journaled HFS+' ~/Stuff/Adobe/Adobe_Photoshop_SparseBundle.sparsebundle
     ```
 
 2.  Mount the newly created image and create a `/Adobe` directory inside
 
     ``` bash
-    open ~/Stuff/Adobe/Adobe_CS6_SparseBundle.sparsebundle
-    mkdir -p /Volumes/Adobe\ CS6\ SparseBundle/Adobe
+    open ~/Stuff/Adobe/Adobe_Photoshop_SparseBundle.sparsebundle
+    mkdir -p /Volumes/Adobe\ Photoshop\ SparseBundle/Adobe
     ```
 
 3.  Create an extra `/Applications/Adobe` folder on the boot drive (we will trick the installer with this temporary directory.)
@@ -47,13 +47,15 @@ I've forked the code to update it for CS6.
 
     ``` bash
     cd ~/Stuff/Adobe
-    git clone git://github.com/tzvetkoff/adobe_case_sensitive_volumes.git
-    cd adobe_case_sensitive_volumes
+    git clone git://github.com/nacholibre/photoshop_cc_case_sensitive_install_mac_osx.git
+    cd photoshop_cc_case_sensitive_install_mac_osx
     make
     sudo make run
     ```
 
-5.  When asked, select `/Applications/Adobe` for installation directory rather than just `/Applications`, but **don't** click the `Install` button!!
+5.  Install Photoshop and you are done!
+
+
     Remember, **don't** click the `Install` button just yet.
 
 6.  Now, time to do one more hack - remove the `/Applications/Adobe` directory and replace it with a symlink to the `/Adobe` directory from the SparseBundle.
